@@ -1,0 +1,4 @@
+{
+  "tasksStatusbar.taskLabelFilter": "^dev$",
+  "typescript.tsdk": ".vscode/pnpify/typescript/lib"
+}

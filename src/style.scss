@@ -1,0 +1,25 @@
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.component-MainView {
+	&,
+	.part-iframe {
+		padding: 0;
+		border: 0;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.part-iframe {
+	}
+}
