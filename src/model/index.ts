@@ -67,8 +67,6 @@ export class Model {
 		this._githubAccessToken = token;
 	}
 
-	private targetUrl: string | undefined = undefined;
-
 	@observable
 	public state: { kind: "noData" } | { kind: "loading" } | GithubState = {
 		kind: "noData",
@@ -168,9 +166,14 @@ export class Model {
 	private async postGithubStatus(args: {
 		state: "pending" | "success" | "error" | "failure";
 	}): Promise<void> {
+		if (this.state.kind !== "loaded") {
+			console.log("error, already loading");
+			return;
+		}
+		const s = this.state;
 		const octokit = this.createOctoKit();
-
 		const description = this.description;
+
 		this.state = { kind: "loading" };
 		await octokit.repos.createStatus({
 			owner: this.info.owner,
@@ -178,7 +181,7 @@ export class Model {
 			state: args.state,
 			sha: this.info.commitSha,
 			description,
-			target_url: this.targetUrl,
+			target_url: s.targetUrl,
 			context: this.info.context,
 		});
 		await this.update();
