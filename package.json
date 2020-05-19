@@ -7,6 +7,7 @@
 		"pub": "yarn build && yarn gh-pages -d dist"
 	},
 	"dependencies": {
+		"@blueprintjs/core": "^3.26.1",
 		"@hediet/std": "0.6.0",
 		"@octokit/rest": "^17.9.2",
 		"classnames": "^2.2.6",

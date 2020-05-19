@@ -37,7 +37,7 @@ module.exports = {
 <html>
 	<head>
 	<meta charset="utf-8">
-	<title>${require("./package.json").name}</title>
+	<title>Github Manual Review Status</title>
 	</head>
 	<body>
 	</body>
