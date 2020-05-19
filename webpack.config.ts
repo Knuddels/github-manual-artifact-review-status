@@ -1,7 +1,6 @@
 import * as webpack from "webpack";
 import path = require("path");
 import HtmlWebpackPlugin = require("html-webpack-plugin");
-const PnpWebpackPlugin = require("pnp-webpack-plugin");
 
 const r = (file: string) => path.resolve(__dirname, file);
 
@@ -14,10 +13,6 @@ module.exports = {
 	},
 	resolve: {
 		extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
-		plugins: [PnpWebpackPlugin],
-	},
-	resolveLoader: {
-		plugins: [PnpWebpackPlugin.moduleLoader(module)],
 	},
 	devtool: "source-map",
 	module: {

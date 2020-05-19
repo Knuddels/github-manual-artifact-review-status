@@ -3,7 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "webpack-dev-server --hot",
-		"build": "webpack"
+		"build": "webpack",
+		"pub": "yarn build && yarn gh-pages -d dist"
 	},
 	"dependencies": {
 		"@hediet/std": "0.6.0",
@@ -12,19 +13,17 @@
 		"mobx": "^5.15.4",
 		"mobx-react": "^6.2.2",
 		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"pub": "gh-pages -d dist"
+		"react-dom": "^16.13.1"
 	},
 	"devDependencies": {
-		"gh-pages": "^2.2.0",
 		"@types/classnames": "^2.2.10",
 		"@types/html-webpack-plugin": "^3.2.2",
 		"@types/react": "^16.9.33",
 		"@types/react-dom": "^16.9.6",
 		"@types/webpack": "^4.41.10",
-		"@yarnpkg/pnpify": "^2.0.0-rc.21",
 		"css-loader": "^3.5.1",
 		"file-loader": "^6.0.0",
+		"gh-pages": "^2.2.0",
 		"html-webpack-plugin": "^4.0.4",
 		"node-sass": "^4.13.1",
 		"pnp-webpack-plugin": "^1.6.4",
