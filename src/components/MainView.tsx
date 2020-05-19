@@ -128,7 +128,7 @@ export class MainView extends React.Component<{ model: Model }, {}> {
 
 						<AnchorButton
 							icon={"share"}
-							href={model.subjectUrl}
+							href={model.subjectUrlExternal}
 							target="_blank"
 						>
 							Open

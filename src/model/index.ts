@@ -14,6 +14,10 @@ export class Model {
 		return this.info.subjectUrl;
 	}
 
+	public get subjectUrlExternal(): string {
+		return this.info.subjectUrlExternal || this.info.subjectUrl;
+	}
+
 	@observable private _isTokenViewOpen: boolean = false;
 	get isTokenViewOpen() {
 		return this._isTokenViewOpen || this.githubAccessToken === undefined;
@@ -202,6 +206,7 @@ interface Info {
 	repo: string;
 	commitSha: string;
 	subjectUrl: string;
+	subjectUrlExternal: string | undefined;
 	reviewMessage: string;
 }
 
@@ -223,6 +228,8 @@ function getInfo(): Info {
 		repo: getQueryParam("repo"),
 		commitSha: getQueryParam("commit-sha"),
 		subjectUrl: getQueryParam("subject-url"),
+		subjectUrlExternal:
+			searchParams.get("subject-url-external") || undefined,
 		reviewMessage: getQueryParam("review-message"),
 	};
 }
