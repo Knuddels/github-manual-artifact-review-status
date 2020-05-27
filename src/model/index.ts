@@ -102,6 +102,9 @@ export class Model {
 				owner: this.info.owner,
 				repo: this.info.repo,
 				ref: this.info.commitSha,
+				headers: {
+					"If-None-Match": "",
+				},
 			});
 
 			const currentStatus = response.data.statuses.find(
