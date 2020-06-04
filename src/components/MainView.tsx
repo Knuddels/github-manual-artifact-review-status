@@ -1,22 +1,16 @@
+import {
+	AnchorButton,
+	Button,
+	ControlGroup,
+	IconName,
+	InputGroup,
+	Overlay,
+} from "@blueprintjs/core";
+import { observer } from "mobx-react";
 import * as React from "react";
 import { Model } from "../model";
-import classnames = require("classnames");
-import { observer } from "mobx-react";
 import { hotComponent } from "../utils/hotComponent";
-import {
-	Button,
-	Overlay,
-	Classes,
-	Card,
-	Elevation,
-	InputGroup,
-	FormGroup,
-	AnchorButton,
-	IconName,
-	ControlGroup,
-	Icon,
-} from "@blueprintjs/core";
-import { observable, action } from "mobx";
+import { TokenInputView } from "./TokenInputView";
 
 @hotComponent(module)
 @observer
@@ -131,7 +125,7 @@ export class MainView extends React.Component<{ model: Model }, {}> {
 							href={model.subjectUrlExternal}
 							target="_blank"
 						>
-							Open
+							Open External URL
 						</AnchorButton>
 
 						<div style={{ width: 10 }} />
@@ -146,63 +140,6 @@ export class MainView extends React.Component<{ model: Model }, {}> {
 					<iframe className="part-iframe" src={model.subjectUrl} />
 				</div>
 			</div>
-		);
-	}
-}
-
-@observer
-class TokenInputView extends React.Component<{ model: Model }> {
-	@observable currentEditedToken: string | undefined;
-
-	get currentToken(): string {
-		if (this.currentEditedToken !== undefined) {
-			return this.currentEditedToken;
-		}
-		return this.props.model.githubAccessToken || "";
-	}
-
-	@action.bound
-	private submitToken() {
-		this.props.model.submitTokenInputView(this.currentToken);
-		this.currentEditedToken = undefined;
-	}
-
-	render() {
-		return (
-			<Card elevation={Elevation.FOUR} interactive={false}>
-				<h1>Github Token</h1>
-				<FormGroup label="Please enter a personal access token">
-					<InputGroup
-						leftIcon="key"
-						placeholder={"Your Github Token"}
-						value={this.currentToken}
-						onChange={
-							((val) =>
-								(this.currentEditedToken =
-									val.currentTarget.value)) as React.FormEventHandler<
-								HTMLInputElement
-							>
-						}
-					/>
-				</FormGroup>
-				<div style={{ display: "flex" }}>
-					<AnchorButton
-						href="https://github.com/settings/tokens/new?scopes=repo:status&description=Manual%20Artifact%20Review%20Status"
-						rightIcon="share"
-						target="_blank"
-					>
-						Create a new Token
-					</AnchorButton>
-					<div style={{ flex: 1 }} />
-					<Button
-						intent="primary"
-						rightIcon="log-in"
-						onClick={this.submitToken}
-					>
-						Save
-					</Button>
-				</div>
-			</Card>
 		);
 	}
 }

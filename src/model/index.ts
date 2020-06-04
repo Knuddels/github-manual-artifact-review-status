@@ -233,6 +233,6 @@ function getInfo(): Info {
 		subjectUrl: getQueryParam("subject-url"),
 		subjectUrlExternal:
 			searchParams.get("subject-url-external") || undefined,
-		reviewMessage: getQueryParam("review-message"),
+		reviewMessage: searchParams.get("review-message") || "",
 	};
 }
