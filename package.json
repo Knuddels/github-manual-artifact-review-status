@@ -1,6 +1,7 @@
 {
-	"name": "my-application",
+	"name": "github-manual-artifact-review-status",
 	"version": "0.0.1",
+	"private": true,
 	"scripts": {
 		"dev": "webpack-dev-server --hot",
 		"build": "webpack",
