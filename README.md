@@ -28,7 +28,7 @@ You need to configure it by setting the following query parameters:
 -   `&owner=` The repository owner.
 -   `&repo=` The repo.
 -   `&commitSha=` The SHA of the commit that you want to review.
--   `&subjectUrl=` The url of the artifact to review. Must be embeddable in an Iframe!
+-   `&subjectUrl=` The url of the build artifact to review. Must be embeddable in an Iframe! You probably need your own artifact repository for that which serves your build artifacts to the web.
 -   `&subjectUrlExternal=` The url used for the `Open External URL` button. _(Optional)_
 -   `&reviewMessage=` A message for the reviewer. _(Optional)_
 
